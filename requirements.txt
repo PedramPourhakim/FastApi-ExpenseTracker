@@ -1,0 +1,15 @@
+fastapi[all]>0.135,<0.136
+alembic>1.18,<1.19
+fastapi-swagger>0.4,<0.5
+passlib[bcrypt]
+pyjwt
+faker
+flake8
+black
+pytest
+apscheduler
+fastapi-cache2[redis]
+aiohttp
+psycopg2-binary
+argon2_cffi
+locust
