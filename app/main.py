@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,JSONResponse
 from fastapi_swagger import patch_fastapi
 from contextlib import asynccontextmanager
 from expenses.routes import router as expenses_routes
@@ -12,6 +12,12 @@ from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
 from core.config import settings
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn=settings.SENTRY_DSN,
+    traces_sample_rate=1.0
+)
 # pybabel compile -d locales
 
 SUPPORTED_LANGUAGES = {"en", "fa"}
@@ -95,6 +101,13 @@ app.include_router(people_routes, prefix="/api/v1")
 app.include_router(expenses_routes, prefix="/api/v1")
 app.include_router(users_routes, prefix="/api/v1")
 
+@app.get("/is-ready",status_code=200)
+async def readiness():
+    return JSONResponse(content="OK")
+
+@app.get("/sentry-debug")
+async def trigger_error():
+    division_by_zero = 1 / 0
 # @app.middleware("http")
 # async def dispatch(request: Request, call_next):
 #     lang = request.query_params.get("lang")

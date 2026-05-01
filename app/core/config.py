@@ -8,5 +8,6 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str = "HS256"
     model_config = SettingsConfigDict(env_file=".env")
     REDIS_URL: str
+    SENTRY_DSN: str
 
 settings = Settings()
