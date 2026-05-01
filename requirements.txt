@@ -1,5 +1,5 @@
 PyJWT~=2.12.1
-fastapi[all]~=0.135.0
+fastapi[all]
 pydantic~=2.12.5
 SQLAlchemy~=2.0.48
 pydantic-settings~=2.13.1

@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException,JSONResponse
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi_swagger import patch_fastapi
 from contextlib import asynccontextmanager
 from expenses.routes import router as expenses_routes
