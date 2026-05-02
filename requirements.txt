@@ -1,5 +1,6 @@
 PyJWT~=2.12.1
 fastapi[all]
+fastapi_swagger
 pydantic~=2.12.5
 SQLAlchemy~=2.0.48
 pydantic-settings~=2.13.1
