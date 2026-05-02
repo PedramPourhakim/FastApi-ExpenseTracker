@@ -13,12 +13,12 @@ from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
 from core.config import settings
-import sentry_sdk
-
-sentry_sdk.init(
-    dsn=settings.SENTRY_DSN,
-    traces_sample_rate=1.0
-)
+# import sentry_sdk
+#
+# sentry_sdk.init(
+#     dsn=settings.SENTRY_DSN,
+#     traces_sample_rate=1.0
+# )
 # pybabel compile -d locales
 
 SUPPORTED_LANGUAGES = {"en", "fa"}
