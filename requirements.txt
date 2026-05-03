@@ -1,5 +1,5 @@
-fastapi[all]>0.135,<0.136
-alembic>1.18,<1.19
+fastapi[all]~=0.135.0
+alembic~=1.18.0
 fastapi-swagger>0.4,<0.5
 passlib[bcrypt]~=1.7.4
 pyjwt~=2.12.1
@@ -13,7 +13,7 @@ aiohttp~=3.13.5
 psycopg2-binary~=2.9.11
 argon2_cffi
 fastapi-mail[httpx]
-locust
+locust~=2.43.4
 celery[redis]
 pydantic~=2.12.5
 SQLAlchemy~=2.0.48
