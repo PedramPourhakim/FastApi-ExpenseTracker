@@ -9,10 +9,11 @@ from core.i18n import load_translations
 from fastapi.exceptions import RequestValidationError
 from utils.exception_handler import ValidationExceptionHandler, HttpExceptionHandler
 
-from fastapi_cache import FastAPICache
-from fastapi_cache.backends.redis import RedisBackend
+
 from redis import asyncio as aioredis
 from core.config import settings
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
 # import sentry_sdk
 #
 # sentry_sdk.init(
@@ -96,6 +97,8 @@ async def http_exception_handler(request, exc):
 @app.exception_handler(RequestValidationError)
 async def http_validation_exception_handler(request, exc):
     return ValidationExceptionHandler().handle_exception(exc)
+
+
 
 
 app.include_router(people_routes, prefix="/api/v1")
